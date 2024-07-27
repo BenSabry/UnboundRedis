@@ -9,6 +9,6 @@ echo "net.ipv4.tcp_fastopen=3     # Unbound: Enable TCP Fast Open - Reduces Netw
 echo "vm.overcommit_memory=1      # 1 Always overcommit, never check. Removes Redis Log Warning." >> /etc/sysctl.conf
 
 (crontab -l 2>/dev/null; echo "0 0 * * 5  ~/scripts/system-upgrade.sh > /dev/null") | crontab -
-(crontab -l 2>/dev/null; echo "@reboot    ~/scripts/unbound-watcher.sh > /dev/null") | crontab -
+(crontab -l 2>/dev/null; echo "@reboot    ~/scripts/unbound-init.sh > /dev/null") | crontab -
 (crontab -l 2>/dev/null; echo "0 0 1 * *  ~/scripts/unbound-update.sh > /dev/null") | crontab -
 (crontab -l 2>/dev/null; echo "0 1 1 * *  ~/scripts/unbound-update-roothints.sh > /dev/null") | crontab -
