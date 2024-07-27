@@ -1,16 +1,16 @@
-echo "downloading installer ..."
-path="/tmp/BenSabry-UnboundRedis"
+{
+    path="/tmp/BenSabry-UnboundRedis"
+    
+    rm -rf $path
+    mkdir $path
+    cd $path
+    
+    wget https://github.com/BenSabry/UnboundRedis/archive/refs/heads/main.zip
+    
+    unzip main.zip
+    cd UnboundRedis-main
 
-rm -rf $path
-mkdir $path
-cd $path
-
-wget https://github.com/BenSabry/UnboundRedis/archive/refs/heads/main.zip
-
-unzip main.zip
-cd UnboundRedis-main
-
-clear
+} &> /dev/null
 
 chmod +x setup.sh
 ./setup.sh
