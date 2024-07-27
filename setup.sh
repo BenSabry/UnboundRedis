@@ -22,3 +22,6 @@ chmod +x ./scripts/*.sh
 
 ./scripts/unbound-service-setup.sh
 ./scripts/config-setup.sh
+
+echo "reboot system"
+reboot

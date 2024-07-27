@@ -3,6 +3,7 @@ echo "downloading installer ..."
 path="/tmp/BenSabry-UnboundRedis"
 
 {
+    rm -rf $path
     mkdir $path
     cd $path
 
