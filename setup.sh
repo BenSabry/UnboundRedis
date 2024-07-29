@@ -15,6 +15,7 @@ mkdir ~/scripts
 chmod +x ~/scripts/*.sh 
 chmod +x ./scripts/*.sh 
 
+./scripts/config-repositories.sh
 ~/scripts/system-upgrade.sh
 
 ./scripts/redis-setup.sh
