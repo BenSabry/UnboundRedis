@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # variables
 unboundStates="$(unbound-control -c /etc/unbound/unbound.conf stats_noreset | grep total.num)"
 unboundCachePercent="$(echo "$(unbound-control -c /etc/unbound/unbound.conf stats_noreset | grep total.num.cachehits= | cut -c 21-)/$(unbound-control -c /etc/unbound/unbound.conf stats_noreset | grep total.num.queries= | cut -c 19-)" | bc -l | cut -c 2-3;)"

@@ -1,4 +1,6 @@
-echo ""; echo "$(date) $0 $@";
+#!/bin/sh
+echo ""
+echo "$(date) $0 $@"
 
 internet="google.com"
 onlineDelay=60
