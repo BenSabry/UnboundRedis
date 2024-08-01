@@ -6,9 +6,6 @@ echo "$(date) $0 $@"
 mkdir ~/scripts
 mkdir /etc/periodic/reboot
 
-# make scripts executable
-chmod +x ./scripts/*.sh
-
 # copy utils scripts
 /bin/cp -f ./scripts/status.sh ~/scripts/status.sh
 /bin/cp -f ./scripts/monitor.sh ~/scripts/monitor.sh

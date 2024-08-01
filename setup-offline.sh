@@ -2,6 +2,9 @@
 echo "";
 echo "$(date) $0 $@"
 
+# make scripts executable
+chmod +x ./scripts/*.sh
+
 ./scripts/copy-scripts.sh
 ./scripts/system-config.sh
 ./scripts/system-upgrade.sh
