@@ -13,4 +13,4 @@
 } &> /dev/null
 
 chmod +x setup-offline.sh
-./setup.sh
+./setup-offline.sh
