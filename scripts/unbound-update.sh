@@ -1,6 +1,6 @@
 #!/bin/sh
 echo ""; 
-echo "$(date) $0 $@";
+echo "$(date) $0 $@"
 
 start="..."
 end="completed"

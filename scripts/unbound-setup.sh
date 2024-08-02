@@ -12,14 +12,15 @@ adduser -S -G unbound unbound
 mkdir /etc/unbound
 chown -R unbound:unbound /etc/unbound
 
-touch /etc/unbound/unbound.log
-chown unbound:unbound /etc/unbound/unbound.log
+mkdir /var/log/unbound
+touch /var/log/unbound/unbound.log
+chown -R unbound:unbound /var/log/unbound
 
 mkdir /var/lib/unbound
 chown -R unbound:unbound /var/lib/unbound
 
 # service
-/bin/cp -f ./configs/unbound /etc/init.d/unbound
+/bin/cp -f ./configs/openrc-unbound /etc/init.d/unbound
 
 chmod +x /etc/init.d/unbound
 rc-update add unbound default

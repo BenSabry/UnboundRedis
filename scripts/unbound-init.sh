@@ -2,7 +2,7 @@
 echo ""
 echo "$(date) $0 $@"
 
-internet="google.com"
+internet="github.com"
 onlineDelay=60
 offlineDelay=20
 
