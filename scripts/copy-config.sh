@@ -10,3 +10,6 @@ echo "$(date) $0 $@"
 echo "$(cat ./configs/logrotate.conf)" > /etc/logrotate.conf
 /bin/cp -f ./configs/logrotate-log.conf /etc/logrotate.d/log
 /bin/cp -f ./configs/logrotate-unbound.conf /etc/logrotate.d/unbound
+
+# resolv
+echo "$(cat ./configs/resolv.conf)" > /etc/resolv.conf
