@@ -10,8 +10,8 @@ wget -qO - https://raw.githubusercontent.com/BenSabry/UnboundRedis/main/setup.sh
 ![Screenshot of Unbound/Redis running.](https://github.com/BenSabry/UnboundRedis/blob/main/.github/assets/SS_monitor.sh.png?raw=true)
 
 # Tech/Tools
-<b>*[Unbound](https://www.nlnetlabs.nl/projects/unbound/about/)*</b>: is a validating, recursive, caching DNS resolver. It is designed to be fast and lean and incorporates modern features.<br />
-<b>*[Redis](https://redis.io/about/)*</b>: is the world’s fastest in-memory database. that can also be used as a cache or document or vector database.<br />
+<b>*[Unbound](https://www.nlnetlabs.nl/projects/unbound/about/)*</b>: is a validating, recursive, caching DNS resolver. It is designed to be fast and lean with modern features.<br />
+<b>*[Redis](https://redis.io/about/)*</b>: is the world’s fastest in-memory database. that can also be used as a cache database.<br />
 
 # Periodic Jobs
 <b>Daily</b> Rotating logs<br />
