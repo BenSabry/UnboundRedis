@@ -1,5 +1,5 @@
 # About
-The purpose of this repository is to automate the installation of Unbound with Redis on a fresh Alpine Linux installation (whether it’s an LXC, VM, or bare metal), establish their interconnection, configure optimal settings for both, and keep everything up to date with periodic update jobs, all while minimizing resource usage, and all accomplished with a single step or script.
+This repository aims to automate the installation of Unbound and Redis on a fresh Alpine Linux setup (LXC, VM, or bare metal), establish their connection, configure optimal settings for both and the operating system itself, and maintain updates with periodic jobs, all while minimizing resource usage and achieving everything with a single script.
 
 # Setup *alpine linux only
 ```SHELL
