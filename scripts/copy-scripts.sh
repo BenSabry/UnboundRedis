@@ -1,8 +1,8 @@
 #!/bin/sh
-echo "";
+echo ""
 echo "$(date) $0 $@"
 
-# move scripts
+# create directories
 mkdir ~/scripts
 mkdir /etc/periodic/reboot
 
