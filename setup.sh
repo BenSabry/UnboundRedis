@@ -97,9 +97,11 @@ postsetup() {
 
     # register and run init.d services
     for item in "$srcroot/etc/init.d"/*; do
-        local name="$(basename "$item")"
-        rc-update add "$name" default
-        service "$name" restart
+        if [ -f "$item" -a -e "$item" ]; then
+            local name="$(basename "$item")"
+            rc-update add "$name" default
+            service "$name" restart
+        fi
     done
 
     rm -rf "$tmp"
