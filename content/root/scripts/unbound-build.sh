@@ -59,6 +59,10 @@ echo "Configuring build options"
     make install &> /dev/null
 )
 
+# make sure the service starts once 
+# to correct permissions before files generation
+service unbound start &> /dev/null
+
 # generate unbound keys
 echo "Generating unbound-control keys"
 unbound-control-setup &> /dev/null
@@ -68,7 +72,7 @@ unbound-anchor -a /var/lib/unbound/root.key &> /dev/null
 
 # start unbound service
 echo "Starting unbound"
-service unbound start
+service unbound restart
 
 # clean
 echo "Removing installation leftovers"
