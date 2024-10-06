@@ -37,7 +37,6 @@ start_pre() {
                 $log_dir
 
         checkpath -f -o $command_user -m644 \
-                $config \
                 $logfile
 }
 
