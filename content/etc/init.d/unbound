@@ -2,14 +2,15 @@
 name="unbound"
 description="Unbound DNS resolver"
 
-etc_dir="/etc/unbound"
-lib_dir="/var/lib/unbound"
-log_dir="/var/log/unbound"
+etc_dir="/etc/$name"
+lib_dir="/var/lib/$name"
+log_dir="/var/log/$name"
+run_dir="/run/$name"
 
 config="$etc_dir/unbound.conf"
-pidfile="$etc_dir/unbound.pid"
+pidfile="$run_dir/unbound.pid"
 logfile="$log_dir/unbound.log"
-controlsocket="/var/run/unbound-control.sock"
+controlsocket="$run_dir/control.sock"
 
 command="/usr/sbin/unbound"
 command_args="-c $config"
@@ -34,7 +35,8 @@ start_pre() {
         checkpath -d -o $command_user -m755 \
                 $etc_dir \
                 $lib_dir \
-                $log_dir
+                $log_dir \
+                $run_dir
 
         checkpath -f -o $command_user -m644 \
                 $logfile

@@ -64,7 +64,7 @@ echo "Generating unbound-control keys"
 unbound-control-setup &> /dev/null
 
 echo "Generating unbound-anchor key"
-unbound-anchor -a /var/lib/unbound/root.key &> /dev/null
+unbound-anchor -a "/var/lib/unbound/root.key" &> /dev/null
 
 # start unbound service
 echo "Starting unbound"
