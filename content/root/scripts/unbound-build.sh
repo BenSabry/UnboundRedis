@@ -72,6 +72,6 @@ service unbound restart
 
 # clean
 echo "Removing installation leftovers"
-rm -rf $tmp &> /dev/null
+rm -rf $path &> /dev/null
 
 echo "Completed installting new version"

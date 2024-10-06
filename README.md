@@ -7,7 +7,7 @@ wget -qO - https://raw.githubusercontent.com/BenSabry/UnboundRedis/main/setup.sh
 ```
 
 # Screenshot of Unbound/Redis running
-![Screenshot of Unbound/Redis running.](https://github.com/BenSabry/UnboundRedis/blob/main/.github/assets/SS_monitor.sh.02.png?raw=true)
+![Screenshot of Unbound/Redis running.](https://github.com/BenSabry/UnboundRedis/blob/main/.github/assets/SS_monitor.sh.png?raw=true)
 
 # Tech/Tools
 <b>*[Unbound](https://www.nlnetlabs.nl/projects/unbound/about/)*</b>: is a validating, recursive, caching DNS resolver. It is designed to be fast and lean with modern features.<br />
