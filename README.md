@@ -14,6 +14,6 @@ wget -qO - https://raw.githubusercontent.com/BenSabry/UnboundRedis/main/setup.sh
 <b>*[Redis](https://redis.io/about/)*</b>: is the world’s fastest in-memory database. that can also be used as a cache database.<br />
 
 # Periodic Jobs
+<b>Daily</b> Unbound Update<br />
 <b>Daily</b> Rotating logs<br />
 <b>Weekly</b> System Upgrade<br />
-<b>Monthly</b> Unbound Update<br />

@@ -2,25 +2,23 @@
 echo ""
 echo "$(date) $0 $@"
 
-start="..."
-end="completed"
+url="https://nlnetlabs.nl/downloads/unbound/unbound-latest.tar.gz"
+path="/tmp/UnboundBuild"
+build="$path/extracted"
 
-tmp="/tmp/unbound"
-build="$tmp/build"
+echo "Downloading $url"
+{(
+    rm -rf $path
+    mkdir -p $path
+    cd $path
 
-# # download
-echo "files download $start"
-{
-    mkdir $tmp
-
-    wget https://nlnetlabs.nl/downloads/unbound/unbound-latest.tar.gz -P $tmp
-    tar xzf $tmp/unbound-latest.tar.gz -C $tmp
-
-    mv "$(ls -d $tmp/unbound-* | head -1)" "$build"
-} &> /dev/null
+    wget $url
+    tar xzf "$(ls $path/*.tar.gz | head -1)"
+    mv "$(ls -d $path/*/ | head -n 1)" $build
+)} &> /dev/null
 
 # configure
-echo "build configure $start"
+echo "Configuring build options"
 (
     cd $build
 
@@ -49,29 +47,31 @@ echo "build configure $start"
         &> /dev/null
 
     # build
-    echo "build make $start"
+    echo "Building unbound from source"
     make &> /dev/null
 
     # stop unbound service
-    echo "stop unbound service $start"
+    echo "Stopping unbound"
     service unbound stop &> /dev/null
 
     # install
-    echo "build install $start"
+    echo "Installing new built unbound"
     make install &> /dev/null
 )
 
 # generate unbound keys
-echo "generate unbound keys $start"
-unbound-control-setup
-unbound-anchor -a /var/lib/unbound/root.key
+echo "Generating unbound-control keys"
+unbound-control-setup &> /dev/null
+
+echo "Generating unbound-anchor key"
+unbound-anchor -a /var/lib/unbound/root.key &> /dev/null
 
 # start unbound service
-echo "start unbound service $start"
+echo "Starting unbound"
 service unbound start
 
 # clean
-echo "remove temp files $start"
+echo "Removing installation leftovers"
 rm -rf $tmp &> /dev/null
 
-echo "installation $end"
+echo "Completed installting new version"

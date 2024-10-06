@@ -1,0 +1,56 @@
+#!/sbin/openrc-run
+name="unbound"
+description="Unbound DNS resolver"
+
+etc_dir="/etc/unbound"
+lib_dir="/var/lib/unbound"
+log_dir="/var/log/unbound"
+
+config="$etc_dir/unbound.conf"
+pidfile="$etc_dir/unbound.pid"
+logfile="$log_dir/unbound.log"
+controlsocket="/var/run/unbound-control.sock"
+
+command="/usr/sbin/unbound"
+command_args="-c $config"
+command_user="unbound:unbound"
+
+depend() {
+        need net
+        use logger
+        provide dns
+        after auth-dns entropy
+}
+
+checkconfig() {
+        ebegin "Checking $config"
+        unbound-checkconf -f "$config" >/dev/null
+        eend $?
+}
+
+start_pre() {
+        checkconfig
+
+        checkpath -d -o $command_user -m755 \
+                $etc_dir \
+                $lib_dir \
+                $log_dir
+
+        checkpath -f -o $command_user -m644 \
+                $config \
+                $logfile
+}
+
+start() {
+        ebegin "Starting $name"
+        start-stop-daemon --start --quiet --pidfile $pidfile --exec $command -- $command_args
+        eend $?
+
+        chmod 707 $controlsocket
+}
+
+stop() {
+        ebegin "Stopping $name"
+        start-stop-daemon --stop --quiet --pidfile $pidfile
+        eend $?
+}

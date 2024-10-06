@@ -14,13 +14,4 @@ if ! (crontab -l | grep "$cron" -q); then
     (crontab -l 2>/dev/null; echo "$cron") | crontab -
 fi
 
-# system
-conf="net.ipv4.tcp_fastopen=3"
-if ! (cat /etc/sysctl.conf | grep "$conf" -q); then
-    echo "net.ipv4.tcp_fastopen=3     # Unbound: Enable TCP Fast Open - Reduces Network Latency" >> /etc/sysctl.conf
-fi
-
-conf="vm.overcommit_memory=1"
-if ! (cat /etc/sysctl.conf | grep "$conf" -q); then
-    echo "vm.overcommit_memory=1      # 1 Always overcommit, never check. Removes Redis Log Warning." >> /etc/sysctl.conf
-fi
+/etc/periodic/weekly/system-upgrade.sh
